@@ -3,7 +3,7 @@ Agile tasks board
 
 ## 1. Checkout repository and Git config
 ### Clone repository
-- run ``
+- run `https://github.com/valerxx22/react-board.git`
 
 ### Checkout branch **master** and **develop**
 - run `git checkout master`
