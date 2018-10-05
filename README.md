@@ -58,7 +58,7 @@ Add project into Tomcat
 admin / admin
 
 ### Commit Message
-Commit message examples:
+# Commit message examples:
     - [tests]: new or changed test
     - [mock]: new or changed mock data
     - [new]: new method, class, constants, component ...
