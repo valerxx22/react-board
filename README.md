@@ -1,5 +1,5 @@
-# react-board
-Agile tasks board
+# React Board
+Agile Sprint Board
 
 ## 1. Checkout repository and Git config
 ### Clone repository
@@ -10,7 +10,6 @@ Agile tasks board
 - run `git checkout develop`
 
 ## 2. Setup
-
 ### Install Node Packages (see package.json)
 - Install Global packages `npm install webpack -g`
 - Install Local packages `npm install`
@@ -52,8 +51,8 @@ admin / admin
     - [import]: swagger import or other imports
     - [config]: new or changed configuration files
 - Example message
-    `ReactBoard [bugfix] fix issue on login page`
+    `[bugfix] fix issue on login page`
 
 ## 7. Naming
-- Feature branch: `features/ReactBoard-1`
+- Feature branch: `feature/ReactBoard-1-Working-Task`
 - Merge request: feature branch name

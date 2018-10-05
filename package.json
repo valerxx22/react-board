@@ -1,7 +1,7 @@
 {
   "name": "react-board",
-  "version": "0.0.1",
-  "description": "Description for ReactBoard",
+  "version": "1.0.0",
+  "description": "Agile Sprint Board",
   "private": true,
   "cacheDirectories": [
     "node_modules"
@@ -15,9 +15,10 @@
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "jquery": "^3.3.1",
-    "style-loader": "^0.23.0",
     "rest": "^2.0.0",
-    "webpack": "^4.20.2"
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "moment": "^2.22.2",
@@ -27,5 +28,21 @@
   },
   "scripts": {
     "watch": "webpack --watch -d"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valerxx22/react-board.git"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "react",
+    "javascript"
+  ],
+  "author": "Valeriu Crudu",
+  "license": "See License in LICENSE",
+  "bugs": {
+    "url": "https://github.com/valerxx22/react-board/issues"
+  },
+  "homepage": "https://github.com/valerxx22/react-board#readme"
 }

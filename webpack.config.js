@@ -1,40 +1,87 @@
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ROOT_PATH = path.resolve(__dirname);
-var BUILD_PATH = path.join(ROOT_PATH, '/src/main/webapp/build/');
-var JSX_PATH = path.join(ROOT_PATH, '/src/main/jsx/');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
-    entry: ['./src/main/jsx/app.jsx'],
-    /*devtool: 'sourcemaps',*/
-    cache: true,
-    debug: true,
-    resolve: {
-     extensions: ['', '.js', '.jsx']
-     },
-    output: {
-        path: __dirname,
-        filename: './src/main/webapp/build/bundle.js'
+module.exports = env => {
+  return {
+    entry: {
+      app: './src/index.html',
     },
+
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js',
+    },
+
+    devServer: {
+      compress: true,
+      contentBase: './dist',
+      hot: true,
+      port: 3005,
+    },
+
     module: {
-        loaders: [
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        },
+        {
+          test: /\.jsx?$/,
+          loader: 'js-loader',
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.scss$/,
+          use: [
             {
-                test: /\.jsx?$/,
-                //include: JSX_PATH,
-                exclude: /(node_modules)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react'],
-                    cacheDirectory: true
-                }
+              loader: 'style-loader',
             },
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-            }
-        ]
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
+        },
+      ],
     },
+
+    resolve: {
+      extensions: ['', '.js', '.jsx'],
+    },
+
     plugins: [
-        new ExtractTextPlugin("./src/main/webapp/build/styles.css")
-    ]
-};
+      new CleanWebpackPlugin(['dist']),
+      new HtmlWebpackPlugin({
+        template: 'index.template.ejs',
+      }),
+      new webpack.HotModuleReplacementPlugin(),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+      }),
+    ],
+
+    devtool: 'source-map',
+    mode: 'development',
+  }
+}
