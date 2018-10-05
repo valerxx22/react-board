@@ -1,46 +1,65 @@
 # React Board
 Agile Sprint Board
 
-## 1. Checkout repository and Git config
-### Clone repository
-- run `https://github.com/valerxx22/react-board.git`
+### What were using
 
-### Checkout branch **master** and **develop**
-- run `git checkout master`
-- run `git checkout develop`
+* React 16
+* Webpack 3
+* React Router 4
+* Babel
 
-## 2. Setup
-### Install Node Packages (see package.json)
-- Install Global packages `npm install webpack -g`
-- Install Local packages `npm install`
+* Jest 21 - to be added*
+* Enzyme 3 for testing - to be added*
 
-### Copy Node dependencies to project
-- run `./gradlew copyNodeLibs`
+### Features
 
-### Build project dependencies
-- run `npm webpack`
+* Webpack configuration for development.
+* CSS module loading, so you can include your css by ```import styles from './path/to.css';```.
+* Both js(x) and css hot loaded during development.
 
-## 3. Run
-### Spring Boot
-#### Gradle
-    gradlew bootRun
-#### Java
+### To run
+
+* You'll need to have [git](https://git-scm.com/) and [node](https://nodejs.org/en/) installed in your system.
+* Fork and clone the project:
+
+```
+git clone https://github.com/valerxx22/react-board.git
+```
+
+* Then install the dependencies:
+
+```
+npm install webpack -g
+```
+```
+npm install
+```
+
+* Build project dependencies:
+
+```
+npm webpack
+```
+
+* Gradle
+
+```
+gradlew bootRun
+```
+
+* Java
+
+```
 Run Application.java
-### Tomcat WAR
+```
 Add project into Tomcat
 
-## 4. Application credentials
+* Application credentials
 admin / admin
 
-## 5. General
-- Don't touch your team members components without talk to them
-- Every task needs an feature branch
-- Never merge your feature branches by yourself
-- Every commit message need a task
+### Commit Message
+Commit message examples:
 
-## 6. Commit Message
-- Every commit message need a task
-- Every commit message needs a label
     - [tests]: new or changed test
     - [mock]: new or changed mock data
     - [new]: new method, class, constants, component ...
@@ -50,9 +69,6 @@ admin / admin
     - [doc]: a change in documentation (readme ...)
     - [import]: swagger import or other imports
     - [config]: new or changed configuration files
-- Example message
+    
+* Example message
     `[bugfix] fix issue on login page`
-
-## 7. Naming
-- Feature branch: `feature/ReactBoard-1-Working-Task`
-- Merge request: feature branch name
